@@ -5,6 +5,9 @@ Rails.application.routes.draw do
       scope '/welcome' do
         get '/' => 'welcome#index'
       end
+      scope '/login' do
+        post '/' => 'login#submit'
+      end
     end
   end
 end

@@ -14,6 +14,14 @@ class Api::V1::ApiController < ApplicationController
       api_error(status: 401, error: 'Client unauthorized.')
     end
 
+    def user_authentication_failure
+      api_error(status: 401, error: 'Invalid credentials.')
+    end
+
+    def json_parse_error
+      api_error(status: 400, error: 'Error parsing json.')
+    end
+
   private
     def destroy_session
       request.session_options[:skip] = true
