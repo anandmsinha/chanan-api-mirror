@@ -1,0 +1,4 @@
+testClient:
+  name: 'BullReasons'
+  api_key: 'Maharaj'
+  rate_limited: false
