@@ -12,7 +12,7 @@ class Api::V1::AuthenticatedCustomerController < Api::V1::ApiController
         customer_unauthenticated
       else
         @user = User.find_by username: @auth_header[1]
-        if !(user && Devise.secure_compare(user.api_token, @auth_header[2]))
+        if !(@user && Devise.secure_compare(@user.api_token, @auth_header[2]))
           customer_unauthenticated
         end
       end

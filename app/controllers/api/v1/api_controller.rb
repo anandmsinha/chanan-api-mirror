@@ -20,10 +20,10 @@ class Api::V1::ApiController < ApplicationController
     end
 
     def authenticate_client
-      if !request.headers.has_key?("Authorization")
+      if request.headers["HTTP_AUTHORIZATION"].blank?
         client_unauthenticated
       else
-        @auth_header = request.headers["Authorization"].split(":", 3)
+        @auth_header = request.headers["HTTP_AUTHORIZATION"].split(":", 3)
         begin
           @client = Client.find_by! api_key: @auth_header[0]
         rescue ActiveRecord::RecordNotFound

@@ -1,0 +1,5 @@
+testUser:
+  email: 'anandms91@gmail.com'
+  username: 'tripanki'
+  encrypted_password: <%= User.new.send(:password_digest, "user123") %>
+  api_token: 'oho'
